@@ -1,0 +1,42 @@
+body {
+    background-image: url("./backgd.jpg");
+    /* background-size: 280%;
+        background-position: -400px 0px; */
+    /* background-color: rgba(rgb(136, 97, 97), rgb(162, 196, 162), rgb(194, 194, 214), ); */
+}
+
+.main {
+    /* margin: 100px auto 0px auto; */
+    border-radius: 2px solid;
+    /* padding-left: 10px; */
+}
+
+.col-lg-5 {
+    background-color: rgba(0, 0, 0, 0.45);
+    width: 550px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.692);
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    position: relative;
+    left: 30%;
+    top: 80%;
+    color: rgba(222, 236, 232, 0.562);
+    opacity: 1;
+}
+
+form#register {
+    margin: 40px;
+}
+
+label {
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+#hardBtn {
+    width: 100%;
+    visibility: hidden;
+}
