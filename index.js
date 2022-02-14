@@ -31,12 +31,6 @@ const maleContentToBeInserted = `
 </div><br>
 
 
-
-
-<div class="form-group">
-<button class="btn form-control btn-success" onClick="savedata"  id="btn" hidden> Submit </button> 
-</div>
-
 `;
 const femaleContentToBeInserted = `
 <div class="form-group">
@@ -69,10 +63,6 @@ const femaleContentToBeInserted = `
     <div id="dynamicSpouceContent"></div>
 </div><br>
 
-<div class="form-group">
-    
-</div>
-<button class="btn btn-success" type="" onClick="savedata()" id="submitBtn" hidden> Submit </button> 
 
 `;
 const spouceContentToBeInserted = `
@@ -80,6 +70,9 @@ const spouceContentToBeInserted = `
 <label> Spouse Name </label>
 <input type="text" name="sp_name" class="form-control" id='sp_name' placeholder="Enter Your Spouse Name" onkeyup="isEmpty()">
 </div> <br>
+ <div class="form-group">
+        <button class="btn form-control btn-success"  onClick="savedata" id="btn" hidden> Submit </button> 
+        </div> 
 `
 
 const handleSpouceContent = () => {
@@ -134,27 +127,76 @@ function savedata() {
     let first_name = document.getElementById("first_name").value;
     console.log(first_name);
     localStorage.setItem('first_name', first_name)
-    alert("saved")
+    let age = document.getElementById("age").value;
+    let spouse_name = document.getElementById("sp_name").value;
+    let MaleGen = document.getElementById("malebtn").value;
+
+
+    localStorage.setItem('age', age)
+    localStorage.setItem('spouse_name', spouse_name)
+    localStorage.setItem('Gender', MaleGen)
 
     //gen
 
     var malebtn = document.getElementById("maleBtn")
     var femalebtn = document.getElementById("femaleBtn")
-    if (maleBtn.checked == true)
-        alert("selected:" + maleBtn.value)
+        // if (maleBtn.checked == true)
+        //     alert("selected:" + maleBtn.value)
+    console.log("male : ", malebtn.checked, "female : ", femalebtn.checked);
 
     var select = document.getElementById("selectbox");
-    selected = options[select.selectedIndex].value
+    // selected = options[select.selectedIndex].value
+    console.log(select.selected);
 
 }
 
-document.getElementById("hardBtn").addEventListener("click", () => {
+document.getElementById("hardBtn").addEventListener("click", (e) => {
+
+    e.preventDefault();
+    savedata();
     let first_name = document.getElementById("first_name").value;
     let age = document.getElementById("age").value;
     let spouse_name = document.getElementById("sp_name").value;
+    let MaleGen = document.getElementById("malebtn").value;
+
 
     localStorage.setItem('first_name', first_name)
     localStorage.setItem('age', age)
     localStorage.setItem('spouse_name', spouse_name)
+    localStorage.setItem('Gender', MaleGen)
+
 
 })
+
+function seterror(id, error) {
+    //sets error inside tag
+    element = document.getElementById(id)
+    element.getElementsByClassName('formerror')[0].innerHTML = error;
+}
+
+function validateform() {
+    var returnval = true;
+    //name val
+    var name = document.forms['myform']['name'].value;
+    if (name.length > 5) {
+        seterror("name", "* length of the name is too short")
+    }
+    return returnval;
+
+    var spouse_name = document.forms['myform']['sp_name'].value;
+    if (sp_name.length > 5) {
+        seterror("sp_name", "* length of the name is too short")
+    }
+    return returnval;
+}
+
+
+function fn1() {
+    var maleBtn = getElementById('maleBtn')
+    var femleBtn = getElementById('femaleBtn')
+
+    if (maleBtn.checked == true) {
+
+    }
+
+}

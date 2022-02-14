@@ -19,14 +19,14 @@
 <body>
     <div class="main">
         <div class="reg">
-            <form action=" " id="register">
+            <form action="#" id="register" name="myform" onsubmit="return validateform()" method="POST">
 
 
                 <div class="col-lg-5" mx-auto border>
                     <p class="alert alert-info"> Enter Your Details </p>
                     <div class="form-group">
                         <label> First Name </label>
-                        <input type="text" name="name" class="form-control" id='first_name' placeholder="Enter First Name" onkeyup="isEmpty()">
+                        <input type="text" name="name" class="form-control" id='first_name' placeholder="Enter First Name" onkeyup="isEmpty()" required> <span class="formerror">  </span>
                     </div> <br>
                     <label> Select Your Gender :</label>
                     <div class="form-check-inline">
